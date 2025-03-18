@@ -2,9 +2,15 @@ const express = require("express");
 const bodyParser = require("body-parser")
 const app = express();
 const port = 3000;
-// ejs
 
+
+const db = require("./models/");
+
+
+// ejs
 app.set("view engine", "ejs");
+
+
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -37,6 +43,18 @@ app.get("/", (req, res) => {
 }
 )
 
+app.get("/prueba", (req, res) => {
+  const persona = db.persona.create({
+    nombre: "Juan",
+    apellido: "Perez",
+    edad: 30,
+  });
+
+
+  res.render("pages/prueba.ejs",{persona})
+}
+)
+
 
 
 app.listen(port, () => {
@@ -47,16 +65,6 @@ app.listen(port, () => {
 app.get("/form", (req, res) => {
   res.sendFile(__dirname + "/form.html");
 });
-
-
-
-
-
-
-
-
-
-
 
 
 app.get("/infoget", (req, res) => {
