@@ -2,7 +2,8 @@ const { DataTypes } = require("sequelize");
 
 
 
-module.exports = (sequelize) => {
+module.exports = function (sequelize) {
+
     const Persona = sequelize.define(
         'Persona',
         {
@@ -15,10 +16,10 @@ module.exports = (sequelize) => {
             },
             edad: {
                 type: DataTypes.INTEGER,
-            },
-        },
-
-    );
+            }
+        }
+    )
 
     return Persona;
 };
+
