@@ -1,11 +1,13 @@
 const {sequelize} = require('../config/db-config');
 
-require("./Persona")(sequelize);
+const persona = require("./Persona")(sequelize);
 
 sequelize.sync();
+module.exports = {
+    persona,
+};
 
 
-module.exports = sequelize;
 
 
 

@@ -11,8 +11,6 @@ const db = require("./models/");
 app.set("view engine", "ejs");
 
 
-
-
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(
@@ -43,17 +41,7 @@ app.get("/", (req, res) => {
 }
 )
 
-app.get("/prueba", (req, res) => {
-  const persona = db.persona.create({
-    nombre: "Juan",
-    apellido: "Perez",
-    edad: 30,
-  });
 
-
-  res.render("pages/prueba.ejs",{persona})
-}
-)
 
 
 
